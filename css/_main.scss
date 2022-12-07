@@ -1,0 +1,231 @@
+@import '_colors.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: $textPriamry;
+    background-color: $blue1;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn{
+    width: 150px;
+    height: 25px;
+    background-image: linear-gradient(to right, $lightBlue , $lightPink);
+    border: none;
+    color: $textActive;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    transform: translateY(-15%);
+}
+
+ul{li{list-style-type: none;}}
+
+a{
+    color: $textPriamry;
+    text-decoration: none;
+}
+
+h1{
+    font-size: 2rem;
+    font-weight: 700;
+    color: transparent;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, $lightBlue , $lightPink);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+h2{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $textActive;
+    text-transform: uppercase;
+}
+
+@mixin fly-items ($width, $top, $z-index, $left){
+    position: absolute;
+    width: $width;
+    top: $top;
+    left: $left;
+    z-index: $z-index;
+}
+
+header{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .logo{
+        img{width: 50%;}
+    }
+
+    nav{
+        ul{
+            display: flex;
+            gap: 50px;
+            
+            li{
+                position: relative;
+                transition: 0.3s ease;
+
+                span{cursor: pointer;}
+
+                .drop{
+                    display: none;
+                    position: absolute;
+
+                    li{margin: 2vh 0;}
+                    li:nth-child(1) {border: none;}
+                }
+            }
+
+            li:hover>.drop{
+                display: block;
+            }
+
+            li:nth-child(1) {
+                color: $textActive;
+                border-bottom: 2px solid $textActive;
+            }
+        }
+    }
+
+    #btn-mobile{
+        display: none;
+    }
+}
+
+footer{
+    width: 100%;
+    height: 50vh;
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: $blue2;
+    
+    .logo{
+        width: 10%;
+        img{width: 100%;}
+    }
+
+    ul{
+        li{margin-top: 5%; font-size: 0.8rem;}
+    }
+}
+
+//  4K
+@media (min-width: 2560px){
+    html{
+        font-size: 32px;
+    }
+
+    .btn{
+        width: 250px;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+
+    header{.logo{img{width: 60%;}}}
+}
+
+//  TABLET'S
+@media  (max-width: 768px){
+
+    header{
+        justify-content: space-between;
+        margin: auto 10%;
+        z-index: 99;
+        background-color: $blue1;
+        
+        nav{
+            display: none;
+            background-color: $blue1;
+            z-index: 99;
+            width: 80%;
+            height: 100vh;
+
+            position: fixed;
+            top: 10vh;
+            right: 0;
+
+            ul{
+                flex-direction: column;
+                align-items: center;
+
+                li{.drop{position: relative;}}
+            }
+        }
+
+        .conclusao{display: none;}
+
+        #btn-mobile{
+            display: flex;
+            position: relative;
+            height: 20px;
+
+            .hamburguer{
+                width: 25px;
+                height: 2px;
+                background-image: linear-gradient(to right, $lightBlue, $lightPink);
+                position: relative;
+            }
+
+            .hamburguer::after, .hamburguer::before{
+                content: '';
+                width: 25px;
+                height: 2px;
+                display: block;
+                margin-top: 7px;
+                background-image: linear-gradient(to right, $lightBlue, $lightPink);
+                transition: .3s ease;
+            }
+        }
+    }
+
+    .active{      
+        nav{display: block;}
+
+        #btn-mobile{
+            .hamburguer::before{
+                transform: rotate(-135deg);
+            }
+
+            .hamburguer::after{
+                transform: rotate(135deg);
+                position: absolute;
+                top: 0;
+            }
+
+            .hamburguer{background: none;}
+        }
+    }
+    
+}
+
+//  MOBILE
+@media  (max-width: 425px){
+
+    header{
+        nav{width: 100%;}
+    }
+
+    footer{
+        height: 100vh;
+        flex-direction: column;
+
+        text-align: center;
+
+        .logo{width: 30%;}
+    }
+    
+}

@@ -1,0 +1,57 @@
+@import '_main.scss';
+
+body{  
+
+    section{
+        width: 80%;
+        height: 50vh;
+        display: flex;
+        margin: 10% auto;
+        
+        .box-text{
+            width: 60%;
+            text-align: justify;
+            margin: auto 0;
+        }
+
+        .space{
+            width: 40%;
+            position: relative;
+
+            .planet{
+                @include fly-items(80%, -5%, -1, 20%);
+                animation: fly 5s alternate infinite;
+            }
+            .rocket{
+                @include fly-items(20%, 0, 0, 70%);
+                animation: fly2 2s ease-in-out alternate infinite;
+            }
+            .atronaut{
+                @include fly-items(70%, -5%, 1, 10%);
+                animation: fly 1.5s ease-in-out alternate-reverse infinite;
+            }
+
+            @keyframes fly {to{transform: translateY(10%);}}
+            @keyframes fly2 {to{transform: translateY(60%);}}
+            @keyframes fly3 {to{transform: translateY(15%);}}
+        }
+    }
+}
+
+@media (max-width: 425px){
+    body{
+        section{
+            flex-direction: column;
+            align-items: center;
+
+            width: 90%;
+            height: 100vh;
+
+            .box-text{
+                margin: 0;
+                h1{text-align: center;}
+            }
+            .space{margin-top: 10vh;}
+        }
+    }
+}

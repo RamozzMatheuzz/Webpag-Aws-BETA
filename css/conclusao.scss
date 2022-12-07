@@ -1,0 +1,48 @@
+@import '_main.scss';
+
+
+body{
+    background-image: url("../img/png/fly.png")!important;
+    background-position: top;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    
+.menu{
+    height: 100vh;
+    width: 20vw;
+    background-color: $blue2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .logo{
+        margin-top: 3vh;
+         img{width: 75px;}
+        }
+    ul{
+        li{
+            margin: 5vh 0;
+            border-bottom: 1px solid transparent;
+            padding: 3vh 0;
+            a{
+                display: flex;
+                align-items: center;
+                gap: 35px;
+
+                img{width: 30px;}
+                p{width: 150px;}
+            }
+        }
+
+        li:hover{
+            border-bottom: 1px solid $lightBlue;
+        }
+    }
+
+    .exit{img{
+        width: 35px;
+    }}
+}
+}

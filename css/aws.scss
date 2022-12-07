@@ -1,0 +1,65 @@
+@import '_main.scss';
+
+body{
+    
+    section{
+        display: block;
+        width: 80%;
+        margin: 15vh auto;
+
+        h1{margin-bottom: 7vh;}
+
+        .container{
+            display: flex;
+            width: 100%;
+            
+            align-items: center;
+    
+            .text{
+                width: 70%;
+                text-align: justify;
+            }
+            .img{
+                width: 30%;
+                display: flex;
+                justify-content: center;
+                img{width:100%; margin: 0 auto;}
+
+                .img2{width: 50%;}
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    body{
+
+        section{
+            .container{.img{.img2{width: 80%;}}}
+        }
+    }
+}
+
+@media (max-width: 425px){
+    
+    body{
+        section{    
+            h1{
+                text-align: center;
+                margin-bottom: 0;
+            }
+
+            .container{
+                flex-direction: column;
+                
+                .text{width: 100%;}
+                .img{
+                    width: 70%;
+                    margin: 3vh 0;
+                }
+            }
+
+            .container:nth-child(2n+1){flex-direction: column-reverse;}
+        }
+    }
+}
